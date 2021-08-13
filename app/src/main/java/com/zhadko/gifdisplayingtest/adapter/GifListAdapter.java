@@ -17,9 +17,11 @@ import java.util.ArrayList;
 public class GifListAdapter extends RecyclerView.Adapter<GifListAdapter.ViewHolder> {
 
     public ArrayList<Gif> gifList;
+    private onGifListener mOnGifListener;
 
-    public GifListAdapter(ArrayList<Gif> gifList) {
+    public GifListAdapter(ArrayList<Gif> gifList, onGifListener onGifListener) {
         this.gifList = gifList;
+        this.mOnGifListener = onGifListener;
     }
 
     @NonNull
@@ -28,7 +30,7 @@ public class GifListAdapter extends RecyclerView.Adapter<GifListAdapter.ViewHold
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.gif_list_item, parent, false);
 
-        return new ViewHolder(view);
+        return new ViewHolder(view, mOnGifListener);
     }
 
     @Override
@@ -44,17 +46,33 @@ public class GifListAdapter extends RecyclerView.Adapter<GifListAdapter.ViewHold
 
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+
+
+    public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         ImageView gifView;
         TextView title;
         TextView date;
+        onGifListener onGifListener;
 
-        public ViewHolder(@NonNull View itemView) {
+        public ViewHolder(@NonNull View itemView, onGifListener onGifListener) {
             super(itemView);
+            this.onGifListener = onGifListener;
             gifView = itemView.findViewById(R.id.GifImage);
             title = itemView.findViewById(R.id.GifTitle);
             date = itemView.findViewById(R.id.GifDateCreation);
+
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            onGifListener.onGifCLick(getAdapterPosition());
         }
     }
+    public interface onGifListener {
+        void onGifCLick(int position);
+
+    }
+
 }

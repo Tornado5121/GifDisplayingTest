@@ -9,6 +9,11 @@ public class Gif {
     public Gif() {
             }
 
+    public Gif(String gifTitle, String dateCreationGif) {
+        this.gifTitle = gifTitle;
+        this.dateCreationGif = dateCreationGif;
+    }
+
     public Gif(int gifPath, String gifTitle, String dateCreationGif) {
         this.gifPath = gifPath;
         this.gifTitle = gifTitle;
