@@ -24,7 +24,7 @@
             android:id="@+id/GifImage"
             android:layout_margin="20dp"
             android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_height="wrap_content"
             android:src="@color/cardview_light_background" />
 
 
@@ -32,7 +32,7 @@
             android:id="@+id/GifTitle"
             android:layout_alignTop="@id/GifImage"
             android:layout_toRightOf="@id/GifImage"
-            android:layout_height="30dp"
+            android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:text="helllo world!"
             android:layout_toEndOf="@id/GifImage" />
@@ -44,7 +44,7 @@
             android:id="@+id/GifDateCreation"
             android:layout_height="30dp"
             android:layout_width="wrap_content"
-            android:text="Here I am"
+            android:text="Here we go again"
             android:layout_toEndOf="@id/GifImage" />
 
         </RelativeLayout>

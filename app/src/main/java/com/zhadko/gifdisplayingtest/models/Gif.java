@@ -1,46 +1,48 @@
 package com.zhadko.gifdisplayingtest.models;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Gif {
 
-    int gifPath;
-    String gifTitle;
-    String dateCreationGif;
+    @SerializedName("images")
+    ImageResources grafficResources;
+
+    @SerializedName("title")
+    String title;
+
+    @SerializedName("import_datetime")
+    String import_datetime;
 
     public Gif() {
             }
 
-    public Gif(String gifTitle, String dateCreationGif) {
-        this.gifTitle = gifTitle;
-        this.dateCreationGif = dateCreationGif;
+    public Gif(ImageResources grafficResources, String title, String import_datetime) {
+        this.grafficResources = grafficResources;
+        this.title = title;
+        this.import_datetime = import_datetime;
     }
 
-    public Gif(int gifPath, String gifTitle, String dateCreationGif) {
-        this.gifPath = gifPath;
-        this.gifTitle = gifTitle;
-        this.dateCreationGif = dateCreationGif;
+    public String getTitle() {
+        return title;
     }
 
-    public int getGifPath() {
-        return gifPath;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
-    public void setGifPath(int gifPath) {
-        this.gifPath = gifPath;
+    public String getImport_datetime() {
+        return import_datetime;
     }
 
-    public String getGifTitle() {
-        return gifTitle;
+    public void setImport_datetime(String import_datetime) {
+        this.import_datetime = import_datetime;
     }
 
-    public void setGifTitle(String gifTitle) {
-        this.gifTitle = gifTitle;
+    public ImageResources getGrafficResources() {
+        return grafficResources;
     }
 
-    public String getDateCreationGif() {
-        return dateCreationGif;
-    }
-
-    public void setDateCreationGif(String dateCreationGif) {
-        this.dateCreationGif = dateCreationGif;
+    public void setGrafficResources(ImageResources grafficResources) {
+        this.grafficResources = grafficResources;
     }
 }
